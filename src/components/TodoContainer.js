@@ -51,15 +51,6 @@ const TodoContainer = () => {
   };
 
   const setUpdate = (updatedTitle, id) => {
-    // // setTodos(
-    // //   todos.map((todo) => {
-    // //     const newTodo = [...todo];
-    // //     if (newTodo.id === id) {
-    // //       newTodo.title = updatedTitle;
-    // //     }
-    // //     return newTodo;
-    // //   })
-    // );
     setTodos((prevState) => prevState.map((todo) => {
       if (todo.id === id) {
         return {
