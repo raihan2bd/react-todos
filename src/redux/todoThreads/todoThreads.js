@@ -3,17 +3,17 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   todoThreads: [
     {
-      threadId: 'id1',
+      id: 'id1',
       name: 'Todo thread 1',
-      progress: 0,
-      quantity: 1,
+      totalTodos: 1,
+      finishedTodos: 0,
       todos: [{ todoId: 'todoId1', title: 'Todo 1', isCompleted: false }],
     },
     {
-      threadId: 'id2',
+      id: 'id2',
       name: 'Todo thread 2',
-      progress: 50,
-      quantity: 2,
+      totalTodos: 5,
+      finishedTodos: 1,
       todos: [
         { todoId: 'todoId2', title: 'Todo 1', isCompleted: false },
         { todoId: 'todoId3', title: 'Todo 2', isCompleted: false },

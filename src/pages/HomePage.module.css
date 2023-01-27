@@ -1,0 +1,15 @@
+.home_sections {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  width: 100%;
+  background: #f1f1f1;
+  padding: 3%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.home_sections h2 {
+  text-align: center;
+  color: rgb(172, 170, 170);
+}

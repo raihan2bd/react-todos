@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -75,4 +75,28 @@ body {
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   margin-bottom: 25px;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #e9e8e8;
+  color: #333;
+}
+
+button {
+  transition: all 0.1s ease-in-out;
+}
+
+button:active {
+  transform: translateY(-2px);
+}
+
+#root {
+  padding: 5%;
 }
