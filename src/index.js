@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-// component
-import TodoContainer from './components/TodoContainer';
+import store from './redux/configureStore';
+import App from './App';
 
 // stylesheet
-import './App.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <TodoContainer />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </Router>
   </React.StrictMode>,
 );

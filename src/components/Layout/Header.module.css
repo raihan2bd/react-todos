@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85px;
+}
+
+.nav {
+ padding: 0 1rem; 
+}
+
+.nav_items {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+.nav_items li a {
+  display: flex;
+  padding: 0.895rem 1rem;
+  text-decoration: none;
+  color: #868686;
+}
+
+.active {
+  color: #0000ff;
+}
