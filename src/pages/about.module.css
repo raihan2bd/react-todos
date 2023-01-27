@@ -1,0 +1,16 @@
+.about-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  margin-top: 2rem;
+}
+
+.about-card {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 15px;
+  gap: 20px;
+}
