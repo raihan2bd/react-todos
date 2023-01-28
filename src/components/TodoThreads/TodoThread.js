@@ -6,11 +6,12 @@ import Button from '../UI/Button';
 import CircelProgress from '../UI/CircleProgress';
 import classes from './TodoThread.module.css';
 
-const TodoThread = ({ id, name, totalTodos, finishedTodos, percentage }) => {
-  const threadClasses =
-    totalTodos - finishedTodos === 0
-      ? `${classes.todo_thread} ${classes.completed}`
-      : classes.todo_thread;
+const TodoThread = ({
+  id, name, totalTodos, finishedTodos, percentage,
+}) => {
+  const threadClasses = totalTodos - finishedTodos === 0
+    ? `${classes.todo_thread} ${classes.completed}`
+    : classes.todo_thread;
 
   return (
     <li id={id} className={threadClasses}>

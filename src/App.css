@@ -91,6 +91,7 @@ body {
 
 button {
   transition: all 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 button:active {
@@ -99,4 +100,6 @@ button:active {
 
 #root {
   padding: 5%;
+  padding-top: 0;
+  position: relative;
 }

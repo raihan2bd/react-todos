@@ -13,9 +13,10 @@
 }
 
 .todo h3 {
-  color: #333 !important;
+  color: #555 !important;
   margin-left: 1rem !important;
   margin-right: auto !important;
+  font-size: 1rem !important;
 }
 
 .actions {
