@@ -6,13 +6,13 @@ import Todo from './Todo';
 import classes from './Todos.module.css';
 
 const Todos = ({ threadId }) => {
-  const todoThreads = useSelector((state) => state.threads.todoThreads);
+  const todos = useSelector((state) => state.todos.todos);
 
-  const { todos } = todoThreads.find((thread) => thread.id === threadId) || [];
+  const filteredTodos = todos.filter((todo) => todo.threadId === threadId) || [];
 
   let todosContent = <p>No Todos found Please Add a new One!</p>;
-  if (todos.length > 0) {
-    todosContent = todos.map((todo) => (
+  if (filteredTodos.length > 0) {
+    todosContent = filteredTodos.map((todo) => (
       <Todo
         key={todo.id}
         id={todo.id}

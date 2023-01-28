@@ -6,7 +6,7 @@ import CircelProgress from '../UI/CircleProgress';
 import classes from './TodoThread.module.css';
 
 const TodoThread = ({
-  id, name, totalTodos, finishedTodos,
+  id, name, totalTodos, finishedTodos, percentage,
 }) => (
   <li id={id} className={classes.todo_thread}>
     <div className={classes.thread_info}>
@@ -24,7 +24,7 @@ const TodoThread = ({
         </div>
       </div>
       <div className={classes.thread_progress}>
-        <CircelProgress percentage={(finishedTodos / totalTodos) * 100} />
+        <CircelProgress percentage={percentage} />
       </div>
       <div className={classes.thread_actions}>
         <button type="button">
@@ -50,6 +50,7 @@ TodoThread.propTypes = {
   name: PropTypes.string.isRequired,
   totalTodos: PropTypes.number.isRequired,
   finishedTodos: PropTypes.number.isRequired,
+  percentage: PropTypes.number.isRequired,
 };
 
 export default TodoThread;

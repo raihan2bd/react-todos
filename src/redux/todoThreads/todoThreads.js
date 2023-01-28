@@ -36,6 +36,13 @@ const initialState = {
         },
       ],
     },
+    {
+      id: 'id3',
+      name: 'Todo thread 3',
+      totalTodos: 1,
+      finishedTodos: 0,
+      todos: [],
+    },
   ],
 };
 
