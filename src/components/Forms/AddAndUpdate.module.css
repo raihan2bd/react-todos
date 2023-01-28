@@ -1,0 +1,75 @@
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.form_container h3 {
+  text-align: center;
+  color: #555;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.form_control {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.form_control label {
+  padding: 10px 0;
+}
+
+.form_control input {
+  margin-top: 10px;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  color: #555;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #f7f7f7;
+}
+
+.input_invalid input {
+  border-color: red;
+  background: #ffaeae;
+}
+
+.input_invalid p {
+  color: red;
+  padding: 0.875rem;
+}
+
+.action {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.btn_cancel {
+  background: red;
+}
+
+.action button {
+  padding: 12px 15px;
+  font-size: 1rem;
+}
+
+.btn_cancel:hover {
+  background: #ad0000;
+}

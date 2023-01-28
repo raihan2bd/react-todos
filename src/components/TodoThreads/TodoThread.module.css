@@ -14,13 +14,11 @@
   opacity: 0.7;
 }
 
-
 .thread_info {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  
 }
 
 .thread_todos {
@@ -30,10 +28,6 @@
   background: #fff;
   border-radius: 3px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-}
-
-.thread_name {
-  color: #555;
 }
 
 .thread_todos h3 {
@@ -48,7 +42,8 @@
   gap: 0.875rem;
 }
 
-.thread_name {
+.thread_title {
+  color: #555;
   margin: 0.5rem 0;
   font-size: 1.3rem;
 }

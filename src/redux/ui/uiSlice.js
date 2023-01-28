@@ -1,22 +1,43 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  showModal: true,
+  showAddThreadModal: true,
+  showEditThreadModal: false,
+  showAddTodoModal: false,
+  showEditTodoModal: false,
 };
 
 const uiSlice = createSlice({
   name: 'name',
   initialState,
   reducers: {
-    openModal(state) {
+    openAddThreadModal(state) {
       const latestState = { ...state };
-      latestState.showModal = true;
+      latestState.showAddThreadModal = true;
       return latestState;
     },
-    closeModal(state) {
+    openEditThreadModal(state) {
       const latestState = { ...state };
-      latestState.showModal = false;
+      latestState.showEditThreadModal = true;
       return latestState;
+    },
+    openAddTodoModal(state) {
+      const latestState = { ...state };
+      latestState.showAddTodoModal = true;
+      return latestState;
+    },
+    openEditTodoModal(state) {
+      const latestState = { ...state };
+      latestState.showEditTodoModal = true;
+      return latestState;
+    },
+    closeModal() {
+      return {
+        showAddThreadModal: false,
+        showEditThreadModal: false,
+        showAddTodoModal: false,
+        showEditTodoModal: false,
+      };
     },
   },
 });

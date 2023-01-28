@@ -1,17 +1,15 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { uiActions } from '../../redux/ui/uiSlice';
 import Modal from '../UI/Modals/Modal';
+import AddAndUpdate from '../Forms/AddAndUpdate';
 import TodoThread from './TodoThread';
 import classes from './TodoThreads.module.css';
 
 const TodoThreads = () => {
   const todoThreads = useSelector((state) => state.threads.todoThreads);
   const todos = useSelector((state) => state.todos.todos);
-  const showModal = useSelector((state) => state.ui.showModal);
-
-  const dispatch = useDispatch();
+  const showModal = useSelector((state) => state.ui.showAddThreadModal);
 
   let todoThreadsContent = <p> No Threads Found! Please Add a New One!!</p>;
 
@@ -29,7 +27,7 @@ const TodoThreads = () => {
         <TodoThread
           key={thread.id}
           id={thread.id}
-          name={thread.name}
+          title={thread.title}
           totalTodos={filteredTodos.length}
           finishedTodos={completedTodos}
           percentage={percentage}
@@ -40,8 +38,8 @@ const TodoThreads = () => {
   return (
     <>
       {showModal && (
-        <Modal onClose={() => dispatch(uiActions.closeModal())} isPromt>
-          <div>Hello</div>
+        <Modal isPromt>
+          <AddAndUpdate action="add-thread" />
         </Modal>
       )}
       <ul className={classes.todo_threads}>{todoThreadsContent}</ul>

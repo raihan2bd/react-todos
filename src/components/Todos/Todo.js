@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaRegTrashAlt, FaRegEdit } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
 
+import Modal from '../UI/Modals/Modal';
+import AddAndUpdate from '../Forms/AddAndUpdate';
+import { uiActions } from '../../redux/ui/uiSlice';
 import Button from '../UI/Button';
 import classes from './Todo.module.css';
 
 const Todo = ({
   id, threadId, title, isCompleted,
 }) => {
+  const showModal = useSelector((state) => state.ui.showEditTodoModal);
+  const dispatch = useDispatch();
+
   const todoClasses = isCompleted
     ? `${classes.todo} ${classes.completed}`
     : classes.todo;
@@ -21,7 +28,7 @@ const Todo = ({
       <h3>{title}</h3>
       <div className={classes.actions}>
         <Button
-          onClick={() => console.log('Edit Button is click')}
+          onClick={() => dispatch(uiActions.openEditTodoModal())}
           extraClass={classes.btn_actions}
         >
           <FaRegEdit />
@@ -33,6 +40,19 @@ const Todo = ({
           <FaRegTrashAlt />
         </Button>
       </div>
+      {showModal && (
+        <Modal isPromt>
+          <AddAndUpdate
+            action="edit-todo"
+            data={{
+              id,
+              threadId,
+              title,
+              isCompleted,
+            }}
+          />
+        </Modal>
+      )}
     </li>
   );
 };
