@@ -7,30 +7,35 @@ import classes from './Todo.module.css';
 
 const Todo = ({
   id, threadId, title, isCompleted,
-}) => (
-  <li className={classes.todo}>
-    <input
-      type="checkbox"
-      checked={isCompleted}
-      onChange={() => console.log('checked')}
-    />
-    <h3>{title}</h3>
-    <div className={classes.actions}>
-      <Button
-        onClick={() => console.log('Edit Button is click')}
-        extraClass={classes.btn_actions}
-      >
-        <FaRegEdit />
-      </Button>
-      <Button
-        onClick={() => console.log('Delete Button is clicked', id, threadId)}
-        extraClass={classes.btn_actions}
-      >
-        <FaRegTrashAlt />
-      </Button>
-    </div>
-  </li>
-);
+}) => {
+  const todoClasses = isCompleted
+    ? `${classes.todo} ${classes.completed}`
+    : classes.todo;
+  return (
+    <li className={todoClasses}>
+      <input
+        type="checkbox"
+        checked={isCompleted}
+        onChange={() => console.log('checked')}
+      />
+      <h3>{title}</h3>
+      <div className={classes.actions}>
+        <Button
+          onClick={() => console.log('Edit Button is click')}
+          extraClass={classes.btn_actions}
+        >
+          <FaRegEdit />
+        </Button>
+        <Button
+          onClick={() => console.log('Delete Button is clicked', id, threadId)}
+          extraClass={classes.btn_actions}
+        >
+          <FaRegTrashAlt />
+        </Button>
+      </div>
+    </li>
+  );
+};
 
 Todo.propTypes = {
   id: PropTypes.string.isRequired,

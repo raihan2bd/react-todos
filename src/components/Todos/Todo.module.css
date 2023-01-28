@@ -7,7 +7,13 @@
   background: #e0e0e0;
 }
 
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 .todo h3 {
+  color: #333 !important;
   margin-left: 1rem !important;
   margin-right: auto !important;
 }
