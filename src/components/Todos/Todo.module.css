@@ -6,3 +6,18 @@
   border-radius: 3px;
   background: #e0e0e0;
 }
+
+.todo h3 {
+  margin-left: 1rem !important;
+  margin-right: auto !important;
+}
+
+.actions {
+  display: flex;
+  gap: .5rem;
+}
+
+.btn_actions {
+  font-size: 1rem;
+  background: #333;
+}

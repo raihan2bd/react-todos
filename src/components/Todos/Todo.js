@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FaRegTrashAlt, FaRegEdit } from 'react-icons/fa';
 
+import Button from '../UI/Button';
 import classes from './Todo.module.css';
 
 const Todo = ({
@@ -14,15 +16,18 @@ const Todo = ({
     />
     <h3>{title}</h3>
     <div className={classes.actions}>
-      <button type="button" onClick={() => console.log('Edit button is click')}>
-        Edit
-      </button>
-      <button
-        type="button"
-        onClick={() => console.log('Delete Button is clicked', id, threadId)}
+      <Button
+        onClick={() => console.log('Edit Button is click')}
+        extraClass={classes.btn_actions}
       >
-        Delete
-      </button>
+        <FaRegEdit />
+      </Button>
+      <Button
+        onClick={() => console.log('Delete Button is clicked', id, threadId)}
+        extraClass={classes.btn_actions}
+      >
+        <FaRegTrashAlt />
+      </Button>
     </div>
   </li>
 );

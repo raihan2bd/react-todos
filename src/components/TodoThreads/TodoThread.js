@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { FaRegTrashAlt, FaRegEdit, FaRegPlusSquare } from 'react-icons/fa';
 
 import Todos from '../Todos/Todos';
+import Button from '../UI/Button';
 import CircelProgress from '../UI/CircleProgress';
 import classes from './TodoThread.module.css';
 
@@ -27,15 +28,24 @@ const TodoThread = ({
         <CircelProgress percentage={percentage} />
       </div>
       <div className={classes.thread_actions}>
-        <button type="button">
+        <Button
+          onClick={() => console.log('Delete Thread Button is called!')}
+          extraClass={classes.btn_actions}
+        >
           <FaRegTrashAlt />
-        </button>
-        <button type="button">
+        </Button>
+        <Button
+          onClick={() => console.log('Edit Thread Button is called!')}
+          extraClass={classes.btn_actions}
+        >
           <FaRegEdit />
-        </button>
-        <button type="button">
+        </Button>
+        <Button
+          onClick={() => console.log('Add Thread Button is called!')}
+          extraClass={classes.btn_actions}
+        >
           <FaRegPlusSquare />
-        </button>
+        </Button>
       </div>
     </div>
     <div className={classes.thread_todos}>
