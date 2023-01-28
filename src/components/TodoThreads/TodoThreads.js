@@ -1,12 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { uiActions } from '../../redux/ui/uiSlice';
+import Modal from '../UI/Modals/Modal';
 import TodoThread from './TodoThread';
 import classes from './TodoThreads.module.css';
 
 const TodoThreads = () => {
   const todoThreads = useSelector((state) => state.threads.todoThreads);
   const todos = useSelector((state) => state.todos.todos);
+  const showModal = useSelector((state) => state.ui.showModal);
+
+  const dispatch = useDispatch();
 
   let todoThreadsContent = <p> No Threads Found! Please Add a New One!!</p>;
 
@@ -32,7 +37,16 @@ const TodoThreads = () => {
       );
     });
   }
-  return <ul className={classes.todo_threads}>{todoThreadsContent}</ul>;
+  return (
+    <>
+      {showModal && (
+        <Modal onClose={() => dispatch(uiActions.closeModal())} isPromt>
+          <div>Hello</div>
+        </Modal>
+      )}
+      <ul className={classes.todo_threads}>{todoThreadsContent}</ul>
+    </>
+  );
 };
 
 export default TodoThreads;
