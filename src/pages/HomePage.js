@@ -4,7 +4,7 @@ import classes from './HomePage.module.css';
 
 const HomePage = () => (
   <section className={classes.home_sections}>
-    <h2>Todos</h2>
+    <h2>Todo Threads</h2>
     <div>
       <TodoThreads />
     </div>

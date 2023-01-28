@@ -7,7 +7,14 @@ const initialState = {
       name: 'Todo thread 1',
       totalTodos: 1,
       finishedTodos: 0,
-      todos: [{ todoId: 'todoId1', title: 'Todo 1', isCompleted: false }],
+      todos: [
+        {
+          id: 'todoId1',
+          threadId: 'id1',
+          title: 'Todo 1',
+          isCompleted: false,
+        },
+      ],
     },
     {
       id: 'id2',
@@ -15,8 +22,18 @@ const initialState = {
       totalTodos: 5,
       finishedTodos: 1,
       todos: [
-        { todoId: 'todoId2', title: 'Todo 1', isCompleted: false },
-        { todoId: 'todoId3', title: 'Todo 2', isCompleted: false },
+        {
+          id: 'todoId2',
+          threadId: 'id2',
+          title: 'Todo 1',
+          isCompleted: true,
+        },
+        {
+          id: 'todoId3',
+          threadId: 'id2',
+          title: 'Todo 2',
+          isCompleted: false,
+        },
       ],
     },
   ],

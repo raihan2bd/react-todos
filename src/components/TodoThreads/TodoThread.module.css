@@ -2,10 +2,35 @@
   display: flex;
   padding: 1rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  background: #fdfbfb;
+  background: #f5f5f5;
   border-radius: 3px;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.thread_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  
+}
+
+.thread_todos {
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.thread_todos h3 {
+  color: #888;
+  text-align: center;
+  margin: 0.5rem 0;
 }
 
 .thread_details {

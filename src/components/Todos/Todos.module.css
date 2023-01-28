@@ -1,0 +1,8 @@
+.todos {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1rem;
+  border-radius: 3px;
+  width: 100%;
+}
