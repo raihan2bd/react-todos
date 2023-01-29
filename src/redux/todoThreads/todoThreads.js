@@ -1,21 +1,24 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { todoSliceActions } from '../todos/todos';
+
+export const fetchTodos = createAsyncThunk(
+  'todo-list/fetch',
+  (data, thunkApi) => {
+    const { todoThreads, todos } = data;
+    if (todos) {
+      thunkApi.dispatch(todoSliceActions.initialTodos(data.todos));
+    }
+    if (todoThreads) {
+      return data.todoThreads;
+    }
+    return [];
+  },
+);
 
 const initialState = {
-  todoThreads: [
-    {
-      id: 'id1',
-      title: 'Todo thread 1',
-    },
-    {
-      id: 'id2',
-      title: 'Todo thread 2',
-    },
-    {
-      id: 'id3',
-      title: 'Todo thread 3',
-    },
-  ],
+  todoThreads: [],
+  isInitialState: false,
 };
 
 const threadSlice = createSlice({
@@ -46,6 +49,12 @@ const threadSlice = createSlice({
       newState.todoThreads = newTodoThreads;
       return newState;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchTodos.fulfilled, (state, action) => {
+      state.todoThreads = action.payload;
+      state.isInitialState = true;
+    });
   },
 });
 

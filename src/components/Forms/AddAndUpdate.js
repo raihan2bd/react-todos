@@ -30,6 +30,7 @@ const AddAndUpdate = ({ action, onClose, data }) => {
   }
 
   const titleChangeHandler = (event) => {
+    setIsFormTouched(true);
     setTitle(event.target.value);
   };
 
@@ -40,7 +41,7 @@ const AddAndUpdate = ({ action, onClose, data }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     setIsFormTouched(true);
-    if (errorMessage) {
+    if (errorMessage || !isFormTouched) {
       return;
     }
 
@@ -107,7 +108,11 @@ const AddAndUpdate = ({ action, onClose, data }) => {
       </div>
     </div>
   );
-  return <form className={classes.form}>{formContent}</form>;
+  return (
+    <form onSubmit={submitHandler} className={classes.form}>
+      {formContent}
+    </form>
+  );
 };
 
 export default AddAndUpdate;
