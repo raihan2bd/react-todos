@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  showAddThreadModal: true,
+  showAddThreadModal: false,
   showEditThreadModal: false,
   showAddTodoModal: false,
   showEditTodoModal: false,

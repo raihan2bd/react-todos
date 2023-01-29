@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FaRegTrashAlt, FaRegEdit } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Modal from '../UI/Modals/Modal';
 import AddAndUpdate from '../Forms/AddAndUpdate';
-import { uiActions } from '../../redux/ui/uiSlice';
+// import { uiActions } from '../../redux/ui/uiSlice';
 import Button from '../UI/Button';
 import classes from './Todo.module.css';
+import { todoSliceActions } from '../../redux/todos/todos';
 
 const Todo = ({
   id, threadId, title, isCompleted,
 }) => {
-  const showModal = useSelector((state) => state.ui.showEditTodoModal);
+  const [showModal, setShowModal] = useState(false);
+  const completedRef = useRef();
+
   const dispatch = useDispatch();
+
+  const showModalHandler = () => setShowModal(true);
+  const closeShowModalHandler = () => setShowModal(false);
+  const onChangeCopletedHandler = () => {
+    dispatch(
+      todoSliceActions.updateProgress({
+        id,
+        isCompleted: completedRef.current.checked,
+      }),
+    );
+  };
 
   const todoClasses = isCompleted
     ? `${classes.todo} ${classes.completed}`
@@ -21,20 +35,18 @@ const Todo = ({
   return (
     <li className={todoClasses}>
       <input
+        ref={completedRef}
+        onChange={onChangeCopletedHandler}
         type="checkbox"
         checked={isCompleted}
-        onChange={() => console.log('checked')}
       />
       <h3>{title}</h3>
       <div className={classes.actions}>
-        <Button
-          onClick={() => dispatch(uiActions.openEditTodoModal())}
-          extraClass={classes.btn_actions}
-        >
+        <Button onClick={showModalHandler} extraClass={classes.btn_actions}>
           <FaRegEdit />
         </Button>
         <Button
-          onClick={() => console.log('Delete Button is clicked', id, threadId)}
+          onClick={() => dispatch(todoSliceActions.removeTodo(id))}
           extraClass={classes.btn_actions}
         >
           <FaRegTrashAlt />
@@ -44,6 +56,7 @@ const Todo = ({
         <Modal isPromt>
           <AddAndUpdate
             action="edit-todo"
+            onClose={closeShowModalHandler}
             data={{
               id,
               threadId,

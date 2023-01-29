@@ -2,13 +2,14 @@
 /* eslint-disable react/require-default-props */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { v4 as uuidV4 } from 'uuid';
+import { v4 as uuidV4 } from 'uuid';
 
-import { uiActions } from '../../redux/ui/uiSlice';
+import { threadSliceActions } from '../../redux/todoThreads/todoThreads';
+import { todoSliceActions } from '../../redux/todos/todos';
 import Button from '../UI/Button';
 import classes from './AddAndUpdate.module.css';
 
-const AddAndUpdate = ({ action, data }) => {
+const AddAndUpdate = ({ action, onClose, data }) => {
   const [title, setTitle] = useState(
     action === 'edit-thread' || action === 'edit-todo' ? data.title : '',
   );
@@ -29,7 +30,6 @@ const AddAndUpdate = ({ action, data }) => {
   }
 
   const titleChangeHandler = (event) => {
-    setIsFormTouched(true);
     setTitle(event.target.value);
   };
 
@@ -40,6 +40,34 @@ const AddAndUpdate = ({ action, data }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     setIsFormTouched(true);
+    if (errorMessage) {
+      return;
+    }
+
+    if (action === 'add-thread') {
+      dispatch(threadSliceActions.addThread({ id: uuidV4(), title }));
+    } else if (action === 'edit-thread') {
+      dispatch(threadSliceActions.editThread({ id: data.id, title }));
+    } else if (action === 'add-todo') {
+      dispatch(
+        todoSliceActions.addTodo({
+          id: uuidV4(),
+          threadId: data.id,
+          title,
+          isCompleted: false,
+        }),
+      );
+    } else if (action === 'edit-todo') {
+      dispatch(
+        todoSliceActions.editTodo({
+          id: data.id,
+          threadId: data.threadId,
+          title,
+          isCompleted: false,
+        }),
+      );
+    }
+    onClose();
   };
 
   const inputClasses = errorMessage
@@ -68,10 +96,7 @@ const AddAndUpdate = ({ action, data }) => {
         {errorMessage && <p>{errorMessage}</p>}
       </div>
       <div className={classes.action}>
-        <Button
-          extraClass={classes.btn_cancel}
-          onClick={() => dispatch(uiActions.closeModal())}
-        >
+        <Button extraClass={classes.btn_cancel} onClick={onClose}>
           Cancel
         </Button>
         <Button extraClass={classes.btn_submit} onClick={submitHandler}>

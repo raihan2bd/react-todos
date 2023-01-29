@@ -1,9 +1,11 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { FaRegTrashAlt, FaRegEdit, FaRegPlusSquare } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
-import { uiActions } from '../../redux/ui/uiSlice';
-import AddAndUpdate from '../Forms/AddAndUpdate';
 
+import { threadSliceActions } from '../../redux/todoThreads/todoThreads';
+import { todoSliceActions } from '../../redux/todos/todos';
+import AddAndUpdate from '../Forms/AddAndUpdate';
 import Todos from '../Todos/Todos';
 import Button from '../UI/Button';
 import CircelProgress from '../UI/CircleProgress';
@@ -13,11 +15,19 @@ import classes from './TodoThread.module.css';
 const TodoThread = ({
   id, title, totalTodos, finishedTodos, percentage,
 }) => {
-  const showEditThreadModal = useSelector(
-    (state) => state.ui.showEditThreadModal,
-  );
-  const showAddTodoModal = useSelector((state) => state.ui.showAddTodoModal);
+  const [showEditThreadModal, setshowEditThreadModal] = useState(false);
+  const [showAddTodoModal, setshowAddTodoModal] = useState(false);
+
   const dispatch = useDispatch();
+
+  const showEditModalHandler = () => setshowEditThreadModal(true);
+  const closeEditModalHandler = () => setshowEditThreadModal(false);
+  const showAddTodoModalHandler = () => setshowAddTodoModal(true);
+  const closeShowAddTodoModallHandler = () => setshowAddTodoModal(false);
+  const removeThreadHandler = () => {
+    dispatch(todoSliceActions.removeTodoByThread(id));
+    dispatch(threadSliceActions.removeThread(id));
+  };
 
   const threadClasses = totalTodos - finishedTodos === 0
     ? `${classes.todo_thread} ${classes.completed}`
@@ -44,19 +54,19 @@ const TodoThread = ({
         </div>
         <div className={classes.thread_actions}>
           <Button
-            onClick={() => console.log('Delete Thread Button is called!')}
+            onClick={removeThreadHandler}
             extraClass={classes.btn_actions}
           >
             <FaRegTrashAlt />
           </Button>
           <Button
-            onClick={() => dispatch(uiActions.openEditThreadModal())}
+            onClick={showEditModalHandler}
             extraClass={classes.btn_actions}
           >
             <FaRegEdit />
           </Button>
           <Button
-            onClick={() => dispatch(uiActions.openAddTodoModal())}
+            onClick={showAddTodoModalHandler}
             extraClass={classes.btn_actions}
           >
             <FaRegPlusSquare />
@@ -69,12 +79,20 @@ const TodoThread = ({
       </div>
       {showEditThreadModal && (
         <Modal isPromt>
-          <AddAndUpdate action="edit-thread" data={{ id, title }} />
+          <AddAndUpdate
+            action="edit-thread"
+            onClose={closeEditModalHandler}
+            data={{ id, title }}
+          />
         </Modal>
       )}
       {showAddTodoModal && (
         <Modal isPromt>
-          <AddAndUpdate action="add-todo" data={{ id }} />
+          <AddAndUpdate
+            action="add-todo"
+            onClose={closeShowAddTodoModallHandler}
+            data={{ id }}
+          />
         </Modal>
       )}
     </li>

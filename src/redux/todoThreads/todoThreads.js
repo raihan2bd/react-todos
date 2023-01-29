@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -17,7 +18,7 @@ const initialState = {
   ],
 };
 
-const todosSlice = createSlice({
+const threadSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
@@ -28,8 +29,16 @@ const todosSlice = createSlice({
       };
       return newState;
     },
+    editThread(state, action) {
+      const existingThreadIndex = state.todoThreads.findIndex(
+        (thread) => thread.id === action.payload.id,
+      );
+      if (existingThreadIndex < 0) return state;
+      state.todoThreads[existingThreadIndex].title = action.payload.title;
+      return state;
+    },
     removeThread(state, action) {
-      const newState = [...state];
+      const newState = { ...state };
       let newTodoThreads = [...state.todoThreads];
       newTodoThreads = newTodoThreads.filter(
         (thread) => thread.id !== action.payload,
@@ -40,5 +49,5 @@ const todosSlice = createSlice({
   },
 });
 
-export const todosSliceActions = todosSlice.actions;
-export default todosSlice.reducer;
+export const threadSliceActions = threadSlice.actions;
+export default threadSlice.reducer;
