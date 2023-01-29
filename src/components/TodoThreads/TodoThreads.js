@@ -14,7 +14,9 @@ const TodoThreads = () => {
 
   const dispatch = useDispatch();
 
-  let todoThreadsContent = <p> No Threads Found! Please Add a New One!!</p>;
+  let todoThreadsContent = (
+    <p className="center"> No Threads Found! Please Add a New One!!</p>
+  );
 
   if (todoThreads.length > 0) {
     todoThreadsContent = todoThreads.map((thread) => {

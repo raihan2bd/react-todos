@@ -10,7 +10,9 @@ const Todos = ({ threadId }) => {
 
   const filteredTodos = todos.filter((todo) => todo.threadId === threadId) || [];
 
-  let todosContent = <p>No Todos found Please Add a new One!</p>;
+  let todosContent = (
+    <p className="center">No Todos found Please Add a new One!</p>
+  );
   if (filteredTodos.length > 0) {
     todosContent = filteredTodos.map((todo) => (
       <Todo

@@ -39,13 +39,10 @@
   padding: 10px 24px;
 }
 
-/* .nav_items li a {
+ .nav_items li a {
   display: flex;
   padding: 0.895rem 1rem;
   text-decoration: none;
   color: #868686;
+  font-size: 1.1rem;
 }
-
-.active {
-  color: #00f;
-} */

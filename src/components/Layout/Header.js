@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { uiActions } from '../../redux/ui/uiSlice';
@@ -16,6 +16,12 @@ const Header = () => {
           </Link>
         </div>
         <ul className={classes.nav_items}>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
           <li>
             <Button
               onClick={() => {
