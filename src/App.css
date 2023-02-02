@@ -1,78 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.4;
-  color: #444;
-  background: #fff;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+  background: #e9e8e8;
+  color: #333;
+  font-family: 'Roboto Slab', serif;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.inner {
-  width: 100%;
-  padding: 8rem 10px 4rem;
-}
-
-.form-container {
-  width: 100%;
-  margin-bottom: 20px;
-  display: flex;
-  border-radius: calc(0.5 * 100px);
-  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
-  justify-content: space-evenly;
-}
-
-.input-text {
-  font-size: 1rem;
-  font-weight: 400;
-  width: 85%;
-  padding-right: 5px;
-  padding-left: 10px;
-  border-radius: calc(0.5 * 100px);
-}
-
-.input-text::placeholder {
-  color: #000;
-}
-
-.input-submit {
-  background: transparent;
-  color: #5b5b5b;
-  text-transform: capitalize;
+button {
+  transition: all 0.1s ease-in-out;
   cursor: pointer;
-  font-weight: 600;
-  margin-right: 10px;
 }
 
-.input-text,
-.input-submit {
-  height: 45px;
-  outline: none;
-  border: none;
+button:active {
+  transform: translateY(-2px);
 }
 
-.todo-items {
-  margin: 10px;
-  padding: 10px 0;
-  list-style: none;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  margin-bottom: 25px;
+#root {
+  padding: 5%;
+  padding-top: 0;
+  position: relative;
+}
+
+.active {
+  color: #2970fc !important;
+}
+
+.center {
+  text-align: center;
 }

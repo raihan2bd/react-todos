@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 5%;
+  z-index: 10;
+}
+
+.nav {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3%;
+}
+
+.brand a {
+  padding: 0 1rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: #555;
+}
+
+.nav_items {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+.btn_new_thread {
+  font-size: 1.1rem;
+  padding: 10px 24px;
+}
+
+.nav_items li a {
+  display: flex;
+  padding: 0.895rem 1rem;
+  text-decoration: none;
+  color: #868686;
+  font-size: 1.1rem;
+}

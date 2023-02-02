@@ -30,15 +30,13 @@
 
 # 📖 Todo LIst <a name="about-project"></a>
 
-> This is A simple but effective and responsive (mobile first) Microverse exercize project.
->
-> **To-do list** is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
+An Advance Todo List is a task management application that allows users to create, manage, and organize to-do items within specific threads. With this application, users can perform CRUD (create, read, update, and delete) operations on the to-do items and threads. The app also provides the capability to track the progress of individual to-do items and update it as required. This makes it an ideal solution for users who want to manage their tasks and projects more efficiently.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> I am using Html, Css and Javascript es6, React Front end development.
+> I am using Html, Css and Javascript es6, React, Redux Front end development.
 
 <details>
   <summary>Client</summary>
@@ -47,6 +45,7 @@
     <li>CSS</li>
     <li>JAVASCRIPT</li>
     <li>React</li>
+    <li>Redux</li>
   </ul>
 </details>
 
@@ -54,11 +53,17 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Some key feature of this project
+Some key feature of this project
 
-- **User can add Todo by adding todo title]**
-- **User can Remove Todo from Todo list**
-- **User can edit Todo from Todo list**
+- Create and manage to-do items within specific threads
+- Perform CRUD operations on both to-do items and threads
+- Track the progress of individual to-do items and update as required
+- Organize and prioritize tasks efficiently
+- User-friendly interface for easy task management
+- Option to set reminders for important tasks
+- Ability to categorize to-do items based on project or topic
+- Option to add notes or additional information to each to-do item
+- Reports or dashboard to track progress and see a summary of completed and pending tasks.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -121,7 +126,8 @@ npm install
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **I will add styles and also make this project nice and user fiendly**
-- [ ] **I will add more functionality using javascript such as drag and drop.**
+- [ ] **I will add more functionality using javascript such as render specific todos with filters.**
+- [ ] **I will connect this app with an api**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

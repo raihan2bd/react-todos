@@ -1,0 +1,8 @@
+.about_section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+}
