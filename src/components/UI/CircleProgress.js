@@ -31,7 +31,7 @@ const CircelProgress = ({ percentage }) => {
         </svg>
       </div>
       <h3 className="percentage">
-        {percentage}
+        {Math.floor(percentage)}
         %
       </h3>
     </div>
