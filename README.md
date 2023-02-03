@@ -4,7 +4,7 @@
 
   <h1>React Todos</h1>
 
-  <h3><b>Microverse README Template</b></h3>
+  <h4><b>An Advance todo list app that can track progress</b></h4>
 
 </div>
 
@@ -67,9 +67,12 @@ Some key feature of this project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
+<!-- Project DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+
+
+## 🚀 Project DEMO <a name="live-demo"></a>
+![React-todo-list](https://user-images.githubusercontent.com/35267447/216528849-d031d40b-c29a-42ec-9229-6b2a2b961945.PNG)
 
 - [Live Demo Link](https://react-todos-2t6k.onrender.com/)
 
