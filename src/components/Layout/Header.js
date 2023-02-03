@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { uiActions } from '../../redux/ui/uiSlice';
@@ -7,6 +7,13 @@ import classes from './Header.module.css';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const showNewThreadModalHandler = () => {
+    navigate('/');
+    dispatch(uiActions.openAddThreadModal());
+  };
+
   return (
     <header className={classes.header}>
       <nav className={classes.nav}>
@@ -24,9 +31,7 @@ const Header = () => {
           </li>
           <li>
             <Button
-              onClick={() => {
-                dispatch(uiActions.openAddThreadModal());
-              }}
+              onClick={showNewThreadModalHandler}
               extraClass={classes.btn_new_thread}
             >
               New Thread
